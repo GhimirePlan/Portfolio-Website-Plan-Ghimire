@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./saif khan_files/boxicons.min.css" rel="stylesheet">
+  <link href="./saif khan_files/boxicons.min(1).css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./saif khan_files/aos.css">
+  <title>Music Ghimire</title>
+  <style>
+    /*=============== GOOGLE FONTS ===============*/
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    /*=============== VARIABLES CSS ===============*/
+    :root {
+      /*========== Colors ==========*/
+      /*Color mode HSL(hue, saturation, lightness)*/
+      /*
+      Blue: hsl(207, 90%, 61%)
+      Purple: hsl(250, 66%, 75%)
+      Pink: hsl(356, 66%, 75%)
+      Teal: hsl(174, 63%, 62%)
+  */
+
+      --hue: 207;
+      --sat: 90%;
+      --lig: 61%;
+      --first-color: hsl(var(--hue), var(--sat), var(--lig));
+      --first-color-alt: hsl(var(--hue), var(--sat), 57%);
+      /* -4% */
+      --title-color: hsl(var(--hue), 12%, 15%);
+      --text-color: hsl(var(--hue), 12%, 45%);
+      --text-color-light: hsl(var(--hue), 8%, 75%);
+      --text-color-lighten: hsl(var(--hue), 8%, 92%);
+      --body-color: hsl(var(--hue), 100%, 99%);
+      --container-color: #fff;
+
+      /*========== Font and typography ==========*/
+      /*.5rem = 8px | 1rem = 16px ...*/
+      --body-font: 'Poppins', sans-serif;
+      --h2-font-size: 1.25rem;
+      --h3-font-size: 1rem;
+      --normal-font-size: .938rem;
+      --small-font-size: .813rem;
+      --smaller-font-size: .75rem;
+    }
+
+    @media screen and (min-width: 968px) {
+      :root {
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+      }
+    }
+
+    /*=============== BASE ===============*/
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--body-font);
+      font-size: var(--normal-font-size);
+      background-color: var(--body-color);
+      color: var(--text-color);
+      transition: .3s;
+      /* For animation dark mode */
+    }
+
+    .banner {
+
+      content: "banner";
+
+      width: 100%;
+      height: 200px;
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      background: url("https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/248605760_2375829522561969_6134051706810523184_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=GGDZVZwASnMAX_bSZxh&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_YsS1vdjVMW1-t7RbBHbNDI0urqQtZdkAaV6-LdEsCww&oe=62FC2235");
+
+      background-size: cover;
+
+      background-repeat: no-repeat;
+
+    }
+
+    .dark-theme .banner {
+
+      background: url("https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/248605760_2375829522561969_6134051706810523184_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=GGDZVZwASnMAX_bSZxh&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_YsS1vdjVMW1-t7RbBHbNDI0urqQtZdkAaV6-LdEsCww&oe=62FC2235");
+
+      background-size: cover;
+
+      background-repeat: no-repeat;
+
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--title-color);
+      font-weight: 600;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /*=============== THEME ===============*/
+    .change-theme {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.25rem;
+      color: var(--title-color);
+      cursor: pointer;
+      transition: .3s;
+      z-index: 16;
+      width: 40px;
+
+      height: 40px;
+
+      background: #fff;
+
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+    }
+
+    bx-menu,
+    bx-x {
+      position: fixed;
+      top: 4.3rem;
+      right: 1.5rem;
+      font-size: 1.25rem;
+      color: var(--title-color);
+      cursor: pointer;
+      transition: .3s;
+      z-index: 16;
+      width: 40px;
+
+      height: 40px;
+
+      background: #fff;
+
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+    }
+
+
+
+    .footer-chat i {
+
+      position: fixed;
+
+      bottom: 7rem;
+
+      right: 1.5rem;
+
+      background-color: var(--body-color);
+
+      color: #0099ff;
+
+      width: 60px;
+
+      height: 60px;
+
+      font-size: 30px;
+
+      z-index: 5;
+
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+
+      transition: .3s;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+    }
+
+
+    .change-theme:hover {
+      color: var(--first-color);
+    }
+
+    .bx-menu:hover,
+    .bx-x:hover,
+    .back-to-top:hover {
+      color: var(--first-color);
+    }
+
+    /*========== Variables Dark theme ==========*/
+    body.dark-theme {
+      --title-color: hsl(var(--hue), 12%, 95%);
+      --text-color: hsl(var(--hue), 12%, 75%);
+      --body-color: hsl(var(--hue), 40%, 8%);
+      --container-color: hsl(var(--hue), 24%, 12%);
+    }
+
+    /*========== 
+    Color changes in some parts of 
+    the website, in light theme
+==========*/
+    .dark-theme .button__gray {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .button__gray:hover {
+      background-color: hsl(var(--hue), 24%, 16%);
+    }
+
+    .dark-theme .filters__content {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .about {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .contact {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .social-links a i {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .footer-chat i {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme .nav-menu a {
+      color: #fff;
+    }
+
+    .dark-theme::-webkit-scrollbar {
+      background-color: hsl(var(--hue), 8%, 16%);
+    }
+
+    .dark-theme .fottor-nav {
+      background-color: var(--container-color);
+    }
+
+    .dark-theme::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--hue), 8%, 24%);
+    }
+
+    .dark-theme::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(var(--hue), 8%, 32%);
+    }
+
+    .dark-theme .change-theme,
+    .bx-menu,
+    .bx-x,
+    .back-to-top {
+
+      background-color: var(--container-color);
+
+    }
+
+    /*=============== REUSABLE CSS CLASSES ===============*/
+    .container {
+      max-width: 968px;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    /*=============== PROFILE ===============*/
+    .profile {
+      position: relative;
+      padding-top: 3.5rem;
+    }
+
+    .profile__container {
+      row-gap: 2rem;
+    }
+
+    .profile__data {
+      display: grid;
+      text-align: center;
+    }
+
+    .profile__perfil {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(180deg,
+          hsla(var(--hue), var(--sat), var(--lig), 1) 0%,
+          hsla(var(--hue), var(--sat), var(--lig), .2) 100%);
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .profile__perfil img {
+      width: 100px;
+    }
+
+    .profile__border {
+      
+      justify-self: center;
+      width: 165px;
+      height: 165px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: .75rem;
+      animation: anim linear infinite 2s;
+    }
+        @keyframes anim{
+      0%{border: 4px solid #0099ff;}
+      25%{border: 4px solid pink;}
+      50%{border: 4px solid violet;}
+      75%{border: 4px solid #043CA1;}
+      100%{border: 4px solid #D318BC;}
+    }
+
+
+    .profile__name {
+      font-size: var(--h2-font-size);
+    }
+
+    .profile__profession {
+      font-size: var(--smaller-font-size);
+      font-weight: 500;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+
+    .profile__social {
+      display: flex;
+      justify-content: center;
+      column-gap: .75rem;
+    }
+
+    .profile__social-link {
+      font-size: 1.25rem;
+      color: var(--title-color);
+      transition: .3s;
+    }
+
+    .profile__social-link:hover {
+      color: var(--first-color);
+    }
+
+    .profile__info {
+      grid-template-columns: repeat(3, max-content);
+      justify-content: center;
+      column-gap: 2.5rem;
+    }
+
+    .profile__info-group {
+      text-align: center;
+    }
+
+    .profile__info-number {
+      font-size: var(--normal-font-size);
+      margin-bottom: .25rem;
+    }
+
+    .profile__info-description {
+      font-size: var(--smaller-font-size);
+      font-weight: 500;
+    }
+
+    .profile__buttons,
+    .profile__buttons-small {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile__buttons {
+      column-gap: 1rem;
+    }
+
+    .profile__buttons-small {
+      column-gap: .25rem;
+    }
+
+    /* Cursor */
+    .typed-cursor {
+      color: var(--first-color);
+    }
+
+    /* If fade out option is set */
+    .typed {
+      color: var(--first-color);
+    }
+
+    /*=============== BUTTONS ===============*/
+    .button {
+      display: inline-flex;
+      align-items: center;
+      column-gap: .5rem;
+      background-color: var(--first-color);
+      color: #fff;
+      padding: 1.15rem 1.5rem;
+      border-radius: .5rem;
+      transition: .3s;
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+    }
+
+    .button i {
+      font-size: 1.25rem;
+    }
+
+    .button:hover {
+      background-color: var(--first-color-alt);
+    }
+
+    .button__small {
+      padding: .75rem;
+      box-shadow: none;
+    }
+
+    .button__gray {
+      background-color: var(--text-color-lighten);
+      color: var(--title-color);
+    }
+
+    .button__gray:hover {
+      background-color: var(--text-color-light);
+    }
+
+    /* nav container */
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -350px;
+      background-color: var(--body-color);
+      color: black;
+      width: 300px;
+      height: 100%;
+      padding: 20px;
+      z-index: 5;
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+      transition: .3s;
+    }
+
+    .show-nav-menu {
+      left: 0;
+    }
+
+    .nav-menu i {
+      font-size: 27px;
+    }
+
+    .nav-menu .profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .7rem;
+    }
+
+    .nav-menu .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 8px solid var(--first-color);
+    }
+
+    .nav-menu ul {
+      margin-top: 20px;
+
+    }
+
+    .nav-menu ul li a {
+      padding: 10px 5px;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: black;
+    }
+
+    .nav-menu a {
+      color: black;
+    }
+
+    .social-links {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    .social-links a i {
+      font-size: 1.5rem;
+
+      color: var(--title-color);
+
+      cursor: pointer;
+
+      transition: .3s;
+
+      z-index: 16;
+
+      width: 40px;
+
+      height: 40px;
+
+      background: #fff;
+
+      box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+      margin-left: 5px;
+
+      border-radius: 50%;
+    }
+
+    /*=============== FILTERS TABS===============*/
+    .filters {
+      margin-top: 10px;
+    }
+
+    .filters__content {
+      margin: 2.5rem 0 2.5rem;
+      background-color: var(--text-color-lighten);
+      padding: .375rem;
+      border-radius: .75rem;
+      display: flex;
+      justify-content: space-between;
+      column-gap: .5rem;
+    }
+
+    .filters__button {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 1rem;
+      color: var(--title-color);
+      font-size: var(--small-font-size);
+      font-family: var(--body-font);
+      font-weight: 500;
+      border-radius: .75rem;
+      cursor: pointer;
+      background-color: transparent;
+      transition: .3s;
+    }
+
+    .filters__button:hover {
+      background-color: var(--body-color);
+    }
+
+    /*=============== PROJECTS ===============*/
+    .projects__card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .projects__card img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .projects__modal {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: -100%;
+      left: 0;
+      background: linear-gradient(180deg,
+          hsla(var(--hue), 24%, 40%, .3) 0%,
+          hsla(var(--hue), 24%, 4%, 1) 95%);
+      display: grid;
+      align-items: flex-end;
+      padding: 1.5rem 1.25rem;
+      transition: .3s;
+    }
+
+    .projects__subtitle,
+    .projects__title {
+      color: #fff;
+    }
+
+    .projects__subtitle {
+      font-size: var(--smaller-font-size);
+    }
+
+    .projects__title {
+      font-size: var(--h3-font-size);
+      margin-bottom: .75rem;
+    }
+
+    .projects__button {
+      padding: .5rem;
+    }
+
+    .projects__card:hover .projects__modal {
+      bottom: 0;
+    }
+
+    /*=============== SKILLS ===============*/
+    .skills__content {
+      display: grid;
+      row-gap: 3.5rem;
+    }
+
+    .skills__title {
+      font-size: var(--h3-font-size);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills__box {
+      width: 100%;
+      display: flex;
+      column-gap: 3rem;
+    }
+
+    .skills__group {
+      width: 100%;
+      display: grid;
+      row-gap: .5rem;
+    }
+
+    .skills__data {
+      width: 100%;
+      display: flex;
+      column-gap: .5rem;
+    }
+
+    .skills__data i {
+      font-size: 1rem;
+      color: var(--first-color);
+    }
+
+    .skills__name {
+      font-size: var(--normal-font-size);
+      font-weight: 500;
+      line-height: 18px;
+    }
+
+    /* Hide and show projects & skills */
+    .filters [data-content] {
+      display: none;
+    }
+
+    .filters__active[data-content] {
+      display: grid;
+    }
+
+    /* Activate button filter */
+    .filter-tab-active {
+      background-color: var(--body-color);
+    }
+
+    /* about section */
+    .about {
+      margin: 2rem 0 2.5rem;
+      background-color: var(--text-color-lighten);
+      padding: .375rem;
+      border-radius: .75rem;
+    }
+
+    .section-title h2 {
+      border-bottom: 2px solid var(--first-color);
+      margin-bottom: 15px;
+    }
+
+    .row {
+      margin: 2rem 0;
+    }
+
+    .resume {
+      margin: 2rem 0 2.5rem;
+      padding: .375rem;
+    }
+
+    .resume .resume-item {
+
+      padding: 0 0 20px 20px;
+
+      margin-top: -2px;
+
+      border-left: 2px solid #1f5297;
+
+      position: relative;
+
+    }
+
+    .resume .resume-item::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 16px;
+
+      height: 16px;
+
+      border-radius: 50px;
+
+      left: -10px;
+
+      top: 0;
+
+      background: #fff;
+
+      border: 2px solid #1f5297;
+
+    }
+
+    .resume-item {
+      margin: 1rem 0;
+    }
+
+    .resume-item h4 {
+
+      margin: .5rem 0;
+
+    }
+
+    .resume-item h5 {
+      margin: .5rem 0;
+    }
+
+    .contact {
+      margin: 2rem 0 2.5rem;
+      background-color: var(--text-color-lighten);
+      padding: .375rem;
+      border-radius: .75rem;
+    }
+
+    .info .address,
+    .phone,
+    .email {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 10px;
+    }
+
+    .form-group input,
+    textarea {
+      width: 100%;
+      padding: 15px 10px;
+      border: none;
+      outline: none;
+      background: #D8D9E6;
+      border-radius: 10px;
+      font-family: var(--body-font);
+    }
+
+    .text-center button {
+      width: 40%;
+      padding: 15px 10px;
+      border: none;
+      outline: none;
+      background: var(--first-color);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-family: var(--body-font);
+    }
+
+    .bx-send {
+      margin-left: 7px;
+    }
+
+    .bx-chevron-right {
+
+      color: var(--first-color);
+
+    }
+
+    /*=============== FOOTER ===============*/
+    .footer__copy {
+      display: block;
+      margin: 2.5rem 0 2rem;
+      text-align: center;
+      font-size: var(--smaller-font-size);
+      color: var(--text-color-light);
+    }
+
+    .fottor-nav {
+      width: 100%;
+      height: 60px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15px;
+      border-radius: 10px;
+    }
+
+    .fottor-nav .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-left .dtls {
+      padding: 10px 0;
+      height: 100%;
+
+    }
+
+    .nav-left .image {
+      width: 50px;
+      height: 50px;
+      
+      border-radius: 50%;
+      animation: anim linear infinite 2s;
+    }
+    @keyframes anim{
+      0%{border: 3px solid #0099ff;}
+      25%{border: 3px solid pink;}
+      50%{border: 3px solid violet;}
+      75%{border: 3px solid #043CA1;}
+      100%{border: 3px solid #D318BC;}
+    }
+
+    .nav-left .image img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .fottor-nav .nav-right {
+      font-size: 25px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .skdtls {
+      font-size: 12px;
+      margin-top: -5px;
+      color: #0099ff;
+    }
+
+    .bxs-home {
+
+      color: #0099ff;
+
+    }
+
+
+
+    /*=============== SCROLL BAR ===============*/
+    ::-webkit-scrollbar {
+      width: .6rem;
+      border-radius: .5rem;
+      background-color: hsl(var(--hue), 8%, 66%);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--hue), 8%, 54%);
+      border-radius: .5rem;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(var(--hue), 8%, 44%);
+    }
+
+    /*=============== BREAKPOINTS ===============*/
+    /* For small devices */
+    @media screen and (max-width: 320px) {
+      .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      .profile__info {
+        column-gap: 1.5rem;
+      }
+
+      .profile__buttons {
+        flex-direction: column;
+        row-gap: 1rem;
+      }
+
+      .skills__box {
+        column-gap: 1rem;
+      }
+    }
+
+    /* For medium devices */
+    @media screen and (min-width: 576px) {
+      .projects__content {
+        grid-template-columns: 332px;
+        justify-content: center;
+      }
+
+      .filters__content {
+        width: 332px;
+        margin: 3rem auto;
+      }
+    }
+
+    @media screen and (min-width: 776px) {
+
+      .projects__content,
+      .skills__content {
+        grid-template-columns: repeat(2, 332px);
+      }
+
+      .skills__content {
+        justify-content: center;
+        column-gap: 3rem;
+      }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 992px) {
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .change-theme {
+        top: 2.5rem;
+        right: 2.5rem;
+      }
+
+      .profile {
+        padding-top: 4rem;
+      }
+
+      .profile__border {
+        width: 135px;
+        height: 135px;
+        margin-bottom: 1rem;
+      }
+
+      .profile__perfil {
+        width: 120px;
+        height: 120px;
+      }
+
+      .profile__perfil img {
+        width: 90px;
+      }
+
+      .profile__profession {
+        margin-bottom: 1.5rem;
+      }
+
+      .profile__info {
+        column-gap: 3rem;
+      }
+
+      .profile__info-description {
+        font-size: var(--small-font-size);
+      }
+
+      .profile__buttons {
+        column-gap: 2rem;
+      }
+
+      .projects__content {
+        gap: 2rem 3rem;
+      }
+
+      .projects__modal {
+        padding: 1.5rem;
+      }
+
+      .skills__title {
+        font-size: var(--normal-font-size);
+        margin-bottom: 2.5rem;
+      }
+
+      .footer__copy {
+        margin: 4.5rem 0 2.5rem;
+      }
+    }
+  </style>
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+  <div class="banner"></div>
+  <!--=============== HEADER ===============-->
+  <header class="profile container" id="hero">
+    <!-- Theme button -->
+
+
+
+    <div class="profile__container grid">
+      <div class="profile__data">
+        <div class="profile__border">
+          <div class="profile__perfil">
+            <!-- Insert your image, according to the example size of the portfolio -->
+            <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/298511927_937010401026949_5879064273806644812_n.png?stp=dst-png_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=893y_T37paQAX9hzWXd&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLw7BD3FH1K0VaWaCia084FHBJEQSpKjYAqEF4LN_wLXQ&oe=631D341B" alt="musicghimire">
+          </div>
+        </div>
+
+        <h2 class="profile__name">Music Ghimire >
+        <h3 class="profile__profession">I'm a <span class="typed">Banker</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true">|</span></h3>
+
+        <ul class="profile__social">
+          <a href="https://www.facebook.com/musice.ghimire" target="_blank" class="profile__social-link">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" target="_blank" class="profile__social-link">
+          <i class="bx bxl-instagram"></i>
+          </a>
+          
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" target="_blank" class="profile__social-link">
+            <i class="bx bxl-twitter"></i>
+          </a>
+        </ul>
+      </div>
+      
+            <div class="profile__info grid">
+        <div class="profile__info-group">
+          <h3 class="profile__info-number counter"> <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="0" class="purecounter">10</span>+</h3>
+          <p class="profile__info-description">
+            Years of <br> work
+          </p>
+        </div>
+        <div class="profile__info-group">
+          <h3 class="profile__info-number counter"> <span data-purecounter-start="0" data-purecounter-end="126" data-purecounter-duration="0" class="purecounter">6</span>+</h3>
+          <p class="profile__info-description">
+            Bank <br> worked
+          </p>
+        </div>
+        <div class="profile__info-group">
+          <h3 class="profile__info-number counter"> <span data-purecounter-start="0" data-purecounter-end="47" data-purecounter-duration="0" class="purecounter">470</span>+</h3>
+          <p class="profile__info-description">Satisfied <br> customers</p>
+        </div>
+      </div>
+
+    
+
+
+      <div class="profile__buttons">
+        <!-- Insert your CV -->
+        <a download="" href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="button">
+          Download CV <i class="bx bx-download"></i>
+        </a>
+
+        <div class="profile__buttons-small">
+          <!-- Insert a real number plus country code -->
+          <a href="https://api.whatsapp.com/send?phone=+9779846763387&amp;text=Hello,%20more%20information!" target="_blank" class="button button__small button__gray">
+            <i class="bx bxl-whatsapp"></i>
+          </a>
+          <!-- Insert your brand name or profile -->
+          <a href="https://m.me/musice.ghimire" class="button button__small button__gray">
+            <i class="bx bxl-messenger"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="nav-menu">
+      <div class="profile">
+        <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/298511927_937010401026949_5879064273806644812_n.png?stp=dst-png_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=893y_T37paQAX9hzWXd&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLw7BD3FH1K0VaWaCia084FHBJEQSpKjYAqEF4LN_wLXQ&oe=631D341B" alt="">
+        <h1 class="text-light"><a href="http://www.saifkhan.cf/index.html">Saif Khan</a></h1>
+        <div class="social-links mt-3 text-center">
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+      <ul>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>projects</span></a></li>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#portfolio" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Skills</span></a></li>
+        <li><a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--=============== MAIN ===============-->
+  <main class="main">
+    <section class="filters container" id="portfolio">
+      <div class="section-title">
+        <h2>Gallery &amp; skills</h2>
+      </div>
+      <!--=============== FILTERS TABS ===============-->
+      <ul class="filters__content">
+        <button class="filters__button filter-tab-active" data-target="#projects">
+          Gallery
+        </button>
+        <button class="filters__button" data-target="#skills">
+          Skills
+        </button>
+      </ul>
+
+      <div class="filters__sections">
+        <!--=============== PROJECTS ===============-->
+        <div class="projects__content grid filters__active" data-content="" id="projects">
+          <article class="projects__card aos-init" data-aos="fade-up">
+            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+            <img src="./saif khan_files/project1.jpg" alt="" class="projects__img">
+
+            <div class="projects__modal">
+              <div>
+                <span class="projects__subtitle">Web</span>
+                <h3 class="projects__title">Payment Site</h3>
+                <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="projects__button button button__small">
+                  <i class="bx bx-link"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projects__card aos-init" data-aos="fade-up">
+            <img src="./saif khan_files/project2.jpg" alt="" class="projects__img">
+
+            <div class="projects__modal">
+              <div>
+                <span class="projects__subtitle">Web</span>
+                <h3 class="projects__title">Portfolio website</h3>
+                <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="projects__button button button__small">
+                  <i class="bx bx-link"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projects__card aos-init" data-aos="fade-up">
+            <img src="./saif khan_files/project3.jpg" alt="" class="projects__img">
+
+            <div class="projects__modal">
+              <div>
+                <span class="projects__subtitle">Movil</span>
+                <h3 class="projects__title">Fast food app</h3>
+                <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="projects__button button button__small">
+                  <i class="bx bx-link"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projects__card aos-init" data-aos="fade-up">
+            <img src="./saif khan_files/project4.jpg" alt="" class="projects__img">
+
+            <div class="projects__modal">
+              <div>
+                <span class="projects__subtitle">Movil</span>
+                <h3 class="projects__title">Travel app</h3>
+                <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="projects__button button button__small">
+                  <i class="bx bx-link"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projects__card aos-init" data-aos="fade-in">
+            <img src="./saif khan_files/project5.jpg" alt="" class="projects__img">
+
+            <div class="projects__modal">
+              <div>
+                <span class="projects__subtitle">Design</span>
+                <h3 class="projects__title">Music app design</h3>
+                <a href="http://www.saifkhan.cf/?fbclid=IwAR3YVx4NTPljBYVa19YdIqGR9g8QONLeAyhFUBGXQUkfzR0lDogD6c4a30o#" class="projects__button button button__small">
+                  <i class="bx bx-link"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!--=============== SKILLS ===============-->
+        <div class="skills__content grid" data-content="" id="skills">
+          <div class="skills__area">
+            <h3 class="skills__title">Frontend Developer</h3>
+
+            <div class="skills__box">
+              <div class="skills__group aos-init aos-animate" data-aos="fade-right">
+                <div class="skills__data">
+
+                  <div>
+                    <h3 class="skills__name">HTML - 97%</h3>
+                    <progress value="97" max="100">50%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+                  <div>
+                    <h3 class="skills__name">CSS - 95%</h3>
+                    <progress value="95" max="100">95%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">JavaScript - 70%</h3>
+                    <progress value="70" max="100">70%</progress>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills__group aos-init aos-animate" data-aos="fade-up">
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">React - 40%</h3>
+                    <progress value="40" max="100">40%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">Bootstrap - 80%</h3>
+                    <progress value="80" max="100">5
+                      80%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+                  <div>
+                    <h3 class="skills__name">Git - 50%</h3>
+                    <progress value="50" max="100">50%</progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills__area">
+            <h3 class="skills__title">Backend Developer</h3>
+
+            <div class="skills__box">
+              <div class="skills__group aos-init aos-animate" data-aos="fade-right">
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">PHP - 50%</h3>
+                    <progress value="50" max="100">50%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">MySQL - 90%</h3> <progress value="90" max="100">90%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">Firebase - 60%</h3>
+                    <progress value="60" max="100">
+                      60%</progress>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skills__group aos-init aos-animate" data-aos="fade-up">
+                <div class="skills__data">
+
+                  <div>
+                    <h3 class="skills__name">Python - 30%</h3>
+                    <progress value="30" max="100">30%</progress>
+                  </div>
+                </div>
+
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">Node Js - 60%</h3>
+                    <progress value="60" max="100">60%</progress>
+                  </div>
+                </div>
+                <div class="skills__data">
+
+
+                  <div>
+                    <h3 class="skills__name">App script - 45%</h3>
+                    <progress value="45" max="100">45%</progress>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="about-inf">
+            <img src="./saif khan_files/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-8 pt-4 pt-lg-0 content">
+            <h3>Designer &amp; Web Developer.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Birthday:</strong> <span>1 December 2001</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Website:</strong> <span>www.basicenglish.ga</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Phone:</strong> <span>+8801947660563</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>City:</strong> <span>Meherpur,Bangladesh</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Degree:</strong> <span>intermediate</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Email:</strong> <span>saifkhan@gmail.com</span></li>
+                  <li><i class="bx bx-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
+                </ul>
+              </div>
+            </div>
+            <p>
+              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
+              Cupiditate ut dicta maxime officiis quidem quia.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    <section id="resume" class="resume ">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="resume-title">Sumary</h3>
+            <div class="resume-item pb-0">
+              <h4>Saif khan</h4>
+              <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
+              <ul>
+                <li>Portland par 127,Orlando, FL</li>
+                <li>(123) 456-7891</li>
+                <li>saifkhan@gmail.com</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Master of Fine Arts &amp; Graphic Design</h4>
+              <h5>2015 - 2016</h5>
+              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
+            </div>
+            <div class="resume-item">
+              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
+              <h5>2010 - 2014</h5>
+              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
+              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Senior graphic design specialist</h4>
+              <h5>2019 - Present</h5>
+              <p><em>Experion, New York, NY </em></p>
+              <ul>
+                <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
+                <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
+                <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
+                <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
+              </ul>
+            </div>
+            <div class="resume-item">
+              <h4>Graphic design specialist</h4>
+              <h5>2017 - 2018</h5>
+              <p><em>Stepping Stone Advertising, New York, NY</em></p>
+              <ul>
+                <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+                <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
+                <li>Recommended and consulted with clients on the most appropriate graphic design</li>
+                <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bx bx-location-plus"></i>
+                <h4>Location:</h4>
+                <p>Meherpur Bangladesh</p>
+              </div>
+
+              <div class="email">
+                <i class="bx bx-envelope"></i>
+                <h4>Email:</h4>
+                <p>saifkhan@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bx bx-phone"></i>
+                <h4>Call:</h4>
+                <p>+8801947660563</p>
+              </div>
+
+              <iframe src="./saif khan_files/embed.html" frameborder="0" style="border:0; width: 100%; height: 290px;border-radius:10px;" allowfullscreen=""></iframe>
+            </div>
+
+          </div>
+
+          <div class="form-items">
+            <form>
+
+              <div class="form-group ">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" placeholder="your name" required="">
+              </div>
+              <div class="form-group">
+                <label for="name">Your Email</label>
+                <input type="email" placeholder="your email" name="email" id="email" required="">
+
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" name="subject" id="subject" placeholder="sunject here" required="">
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea name="message" rows="7" required=""></textarea>
+              </div>
+
+              <div class="text-center"><button type="submit">Send <i class="bx bx-send"></i></button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
+
+  <!--=============== FOOTER ===============-->
+  <footer class="footer container">
+    <a href="https://api.whatsapp.com/send?phone=01988782021&amp;text=Hello,%20more%20information!" target="_blank" class="footer-chat">
+
+      <i class="bx bx-message"></i>
+
+    </a>
+    <span class="footer__copy">
+      © All rigths reserved
+    </span>
+    <div class="fottor-nav">
+      <div class="nav-left">
+        <div class="image">
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/298511927_937010401026949_5879064273806644812_n.png?stp=dst-png_p206x206&_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=893y_T37paQAX9hzWXd&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLw7BD3FH1K0VaWaCia084FHBJEQSpKjYAqEF4LN_wLXQ&oe=631D341B" alt="">
+        </div>
+        <div class="dtls">
+          <h3>saif khan</h3>
+          <span class="skdtls">web de</span><span class="typed-cursor" aria-hidden="true">|</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <i class="bx bxs-home back-to-top" onclick="topFunction()"></i>
+        <i class="bx bx-moon" id="theme-button"></i>
+        <i class="bx bx-menu menu"></i>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /*=============== FILTERS TABS ===============*/
+    const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[data-content]')
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.target)
+
+        tabContents.forEach(tc => {
+          tc.classList.remove('filters__active')
+        })
+        target.classList.add('filters__active')
+
+        tabs.forEach(t => {
+          t.classList.remove('filter-tab-active')
+        })
+        tab.classList.add('filter-tab-active')
+      })
+    })
+
+    /*=============== DARK LIGHT THEME ===============*/
+    const themeButton = document.getElementById('theme-button')
+    const darkTheme = 'dark-theme'
+    const iconTheme = 'bx-sun'
+
+    // Previously selected topic (if user selected)
+    const selectedTheme = localStorage.getItem('selected-theme')
+    const selectedIcon = localStorage.getItem('selected-icon')
+
+    // We obtain the current theme that the interface has by validating the dark-theme class
+    const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+    const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
+
+    // We validate if the user previously chose a topic
+    if (selectedTheme) {
+      // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+      document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+      themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
+    }
+
+    // Activate / deactivate the theme manually with the button
+    themeButton.addEventListener('click', () => {
+      // Add or remove the dark / icon theme
+      document.body.classList.toggle(darkTheme)
+      themeButton.classList.toggle(iconTheme)
+      // We save the theme and the current icon that the user chose
+      localStorage.setItem('selected-theme', getCurrentTheme())
+      localStorage.setItem('selected-icon', getCurrentIcon())
+    })
+
+    /*=============== SCROLL REVEAL ANIMATION ===============*/
+
+
+    // counter section //
+    var ShowMenu = document.querySelector('.menu');
+    var navMenu = document.querySelector('.nav-menu');
+    ShowMenu.addEventListener('click', function() {
+      navMenu.classList.toggle('show-nav-menu')
+      this.classList.toggle('bx-menu')
+      this.classList.toggle('bx-x')
+
+    })
+
+    let backtotop = document.querySelector('.back-to-top');
+
+    // When the user scrolls down 20px from the top of the document, show the button
+
+    window.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backtotop.classList.replace('bxs-home', 'bx-up-arrow-alt')
+      } else {
+        backtotop.classList.replace('bx-up-arrow-alt', 'bxs-home')
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+
+    function topFunction() {
+
+      document.body.scrollTop = 0; // For Safari
+
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    }
+  </script>
+ 
+
+  <script src="./saif khan_files/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed('.typed', {
+      strings: ['Banker', 'Web developer', 'App developer'],
+      typeSpeed: 60,
+      backSpeed: 60,
+      loop: true,
+    });
+    var typed = new Typed('.skdtls', {
+
+      strings: ['Banker', 'Web developer', 'App developer'],
+
+      typeSpeed: 60,
+
+      backSpeed: 60,
+
+      loop: true,
+
+    });
+  </script><style type="text/css" data-typed-js-css="true">
+        .typed-cursor{
+          opacity: 1;
+        }
+        .typed-cursor.typed-cursor--blink{
+          animation: typedjsBlink 0.7s infinite;
+          -webkit-animation: typedjsBlink 0.7s infinite;
+                  animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink{
+          50% { opacity: 0.0; }
+        }
+        @-webkit-keyframes typedjsBlink{
+          0% { opacity: 1; }
+          50% { opacity: 0.0; }
+          100% { opacity: 1; }
+        }
+      </style>
+
+  <script src="./saif khan_files/aos.js.download"></script>
+
+  <script>
+    AOS.init()
+  </script>
+
+
+
+
+
+
+</body></html>
