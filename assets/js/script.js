@@ -181,7 +181,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
           Insta.src ="./assets/Sounds/instagram.mp3" ; 
             
 
-
+ window.onload=function(){
+      document.getElementById("my_audio").play();
+    }
 
 
 
