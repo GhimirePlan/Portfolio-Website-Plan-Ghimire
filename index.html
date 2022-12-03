@@ -6,7 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Plan Ghimire</title>
-
+<!--
+    - Robort
+  -->
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
+  
   <!--
     - favicon
   -->
@@ -975,7 +980,7 @@ CEO
             </div>
 
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
+<div class="g-recaptcha" data-sitekey="6Lf1V1EjAAAAACJ0Yk3QCJHy4LkmHocc2LNUwnTy"></div>
             <button class="form-btn" onclick="audio.play();" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
@@ -1095,4 +1100,16 @@ CEO
                 </footer>
                 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
                 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!--
+    - Robort
+  -->
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+<script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+    sitekey:'6Lf1V1EjAAAAACJ0Yk3QCJHy4LkmHocc2LNUwnTy',
+  };
+</script>
 </html>
