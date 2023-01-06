@@ -2069,7 +2069,7 @@ cursor: pointer;
 }
 /***Clock*/
 #clock{ 
-  background: linear-gradient(0deg, rgba(223,223,223,1) 0%, rgba(255,255,255,1) 100%); 
+  background: var(--orange-yellow-crayola); 
   min-width:fit-content;
   height: max-content;
   box-shadow: 0px 20px 16px 1px #00000030;
@@ -2082,7 +2082,7 @@ cursor: pointer;
   align-items:center;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr); 
-  background: rgb(0, 0, 0);
+  background: url(./assets/images/clock.gif);
   color: #1796fe;
   font-size: 1vw;
   padding: 0% ;
