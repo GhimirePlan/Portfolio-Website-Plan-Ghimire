@@ -461,6 +461,7 @@ main {
   overflow: hidden;
   transition: var(--transition-2);
   background: var(--eerie-black-2);
+  border-radius: 20px;
 }
 
 .sidebar.active { max-height: 450px; }
