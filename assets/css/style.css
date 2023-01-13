@@ -460,6 +460,7 @@ main {
   max-height: 112px;
   overflow: hidden;
   transition: var(--transition-2);
+  background: var(--eerie-black-2);
 }
 
 .sidebar.active { max-height: 450px; }
