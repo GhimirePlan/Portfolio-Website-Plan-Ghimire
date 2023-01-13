@@ -213,7 +213,9 @@ for (let i = 0; i < navigationLinks.length; i++) {
       player.ontimeupdate = function () {
         let ct = player.currentTime;
         current.innerHTML = timeFormat(ct);
+        
         //progress
+        
         let duration = player.duration;
         prog = Math.floor((ct * 100) / duration);
         progress.style.setProperty("--progress", prog + "%");
