@@ -464,7 +464,7 @@ main {
   border-radius: 20px;
 }
 
-.sidebar.active { max-height: 450px; }
+.sidebar.active { max-height: 520px; }
 
 .sidebar-info {
   position: relative;
