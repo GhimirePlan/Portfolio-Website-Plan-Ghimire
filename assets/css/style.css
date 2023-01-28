@@ -499,8 +499,8 @@ main {
 
 .info_more-btn {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -1px;
+  right: 6px;
   border-radius: 0 15px;
   font-size: 13px;
   color: var(--orange-yellow-crayola);
