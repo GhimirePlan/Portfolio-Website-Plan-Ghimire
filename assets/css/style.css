@@ -460,7 +460,7 @@ main {
   max-height: 112px;
   overflow: hidden;
   transition: var(--transition-2);
-  background: #000000);
+  background: var(--eerie-black-2));
   border-radius: 20px;
 }
 
@@ -2060,7 +2060,7 @@ cursor: pointer;
 }
 /***Clock*/
 #clock{ 
-  background: #000000; 
+  background: var(--eerie-black-2); 
   min-width:fit-content;
   height: max-content;
   box-shadow: 0px 20px 16px 1px #00000030;
