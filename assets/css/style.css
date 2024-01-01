@@ -464,7 +464,7 @@ main {
   border-radius: 20px;
 }
 
-.sidebar.active { max-height: 520px; }
+.sidebar.active { max-height: 700px; }
 
 .sidebar-info {
   position: relative;
@@ -2061,12 +2061,13 @@ cursor: pointer;
 /***Clock*/
 #clock{ 
   background: var(--eerie-black-2); 
-  min-width:fit-content;
-  height: max-content;
+  width: fit-content;
+  height: fit-content;
   box-shadow: 0px 20px 16px 1px #00000030;
   z-index: 1;
-  padding: 1%;
-  border-radius: 1px;
+  padding: 10%;
+  border-radius: 60px;
+  grid-template-columns: 48px 1fr 48px;
 }
 #display{
   display: revert;
@@ -2095,6 +2096,13 @@ cursor: pointer;
   grid-area: 2 / 2 / 2 / 3;
   height: fit-content;
 }
+
+/*-----------------------------------*\
+  #CUSTOM Clock disable in mobile
+\*-----------------------------------*/
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 550px) { .clock{display: none} }
 /*-----------------------------------*\
   #CUSTOM PROPERTY Music
 \*-----------------------------------*/
@@ -2102,7 +2110,7 @@ cursor: pointer;
 
 
 .player {
-  width: 240px;
+  width: 170px;
   background: url(https://thumbs.gfycat.com/DirectOffbeatAbalone-max-1mb.gif);
   display: grid;
   grid-template-columns: 48px 1fr 48px;
@@ -2161,6 +2169,97 @@ cursor: pointer;
   background-color: white;
   transition: all 1s linear;
   height: 100%;
+}
+
+/*-----------------------------------*\
+  #Counter
+\*-----------------------------------*/
+
+.count{
+  position: relative;
+}
+
+.wrapperc {
+  position: relative;
+  max-width: fit-content;
+  display: flex;
+  gap: 10px;
+
+}
+.containerc {
+  width: 35vmin;
+  height: 20vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1em 0;
+  position: relative;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background-color: #21242b;
+  border-bottom: 5px solid #ffc864;
+}
+i {
+  color: #ffc864;
+  font-size: 2em;
+  text-align: center;
+}
+span.numc {
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 3em;
+}
+span.textc {
+  color: #e0e0e0;
+  font-size: 1em;
+  text-align: center;
+  pad: 0.7em 0;
+  font-weight: 400;
+  line-height: 0;
+}
+@media screen and (max-width: 1024px) {
+  .wrapperc {
+    width: 85vw;
+  }
+  .containerc {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapperc {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .containerc {
+    width: calc(50% - 40px);
+    height: 30vmin;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .wrapperc {
+    gap: 15px;
+  }
+  .containerc {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
+}
+
+
+
+.contactbg{
+  background-color: var(--eerie-black-2);
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  gap: 10px;
 }
 /*-----------------------------------*\
   #CUSTOM PROPERTY
