@@ -2181,13 +2181,14 @@ and (max-device-width : 550px) { .clock{display: none} }
 
 .wrapperc {
   position: relative;
-  max-width: fit-content;
+  max-width: -webkit-fill-available;
   display: flex;
   gap: 10px;
-
+  margin-left: 55px;
+  margin-right: 55px;
 }
 .containerc {
-  width: 35vmin;
+  width: 40vmin;
   height: 20vmin;
   display: flex;
   flex-direction: column;
@@ -2304,6 +2305,7 @@ span.textc {
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(255,255,255,.3);
 }
+
 .plan{
   color: #737373;
   font-size: 70px;
