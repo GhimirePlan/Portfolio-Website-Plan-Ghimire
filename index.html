@@ -68,6 +68,20 @@ My job is to build your website so that it is functional and user-friendly but a
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6097517443639560"
      crossorigin="anonymous"></script>
+
+
+     <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<!--
+    - email.js
+  -->
+<script type="text/javascript">
+   (function(){
+   emailjs.init("user_5WDstTzYPmHiAVXJX");
+   })();
+</script>
+
 </head>
 
 <body>
@@ -107,7 +121,7 @@ My job is to build your website so that it is functional and user-friendly but a
         <div class="info-content">
           <h1 class="name" title="Plan Ghimire">Plan Ghimire</h1>
 
-          <p class="title">BCI Student | Graphics Designer <br> Web Developer | Freelancer</p>
+          <p class="title">Student | Graphics Designer <br> Web Developer | Freelancer</p>
         
         </div>
 
@@ -422,6 +436,59 @@ Enthusiastic Electronics Communication and Information Engineering student with 
         
         </section>
           <br>
+
+
+          <section class="clients">
+
+          <h3 class="h3 clients-title">Tools & Technologies</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item"  onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/python.png" alt="client logo" height="110px">
+              </a>
+            </li>
+
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/c.png" alt="client logo" height="110px">
+              </a>
+            </li>
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/ai.png" alt="client logo"  height="100px">
+              </a>
+            </li>
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/ps.png" alt="client logo"  height="110px">
+              </a>
+            </li>
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/hcj.jpg" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/canva.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item" onpointerover="logo.play();">
+              <a href="#">
+                <img src="./assets/images/figma.jpg" alt="client logo">
+              </a>
+            </li>
+
+            
+
+
+          </ul>
+
+        </section>
         <!--
           - testimonials
         -->
@@ -567,54 +634,10 @@ Enthusiastic Electronics Communication and Information Engineering student with 
 
         <!--
           - clients
+        -->
+
+
         
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">My Logo Design</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item"  onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item" onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item" onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item" onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item" onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item" onpointerover="logo.play();">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>-->
-
       
 
 
@@ -1029,17 +1052,16 @@ Enthusiastic Electronics Communication and Information Engineering student with 
 
           <h3 class="h3 form-title">Let's connect</h3>
 
-          <form action="https://script.google.com/macros/s/AKfycbyK0Wzyih9Rkex_-po2HUnWXWYrzAllA9nbWaB3TGxmEhD21cxbfJm1lS7M1ONAPOv7/exec" class="form" data-form  method="POST" >
+          <form  class="form" data-form   >
 
             <div class="input-wrapper">
-              <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="name" class="form-input" id="fullname"  placeholder="Full name" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" id="email_id" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-<div class="g-recaptcha" data-sitekey="6LcmJELpAAAAAMCtSYr-WWfrH717Vpy9hCmx-Ms9" required data-form-input></div>
-            <button class="form-btn" id="form" class="g-recaptcha" data-sitekey="6LcmJELpAAAAAMCtSYr-WWfrH717Vpy9hCmx-Ms9" data-callback='onSubmit' data-action='submit' required data-form-input onclick="audio.play();" type="submit" disabled data-form-btn>
+            <textarea name="message" class="form-input" placeholder="Your Message" id="message" required data-form-input></textarea>
+            <button onclick="SendMail()" class="form-btn" id="form"  disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Let's Talk</span>
             </button>
@@ -1064,23 +1086,25 @@ Enthusiastic Electronics Communication and Information Engineering student with 
   -->
   <script src="./assets/js/script.js"></script>
 
+<script>
+  function SendMail() {
+    var params = {
+      from_name : document.getElementById("fullname").value,
+      email_id : document.getElementById("email_id").value,
+      message : document.getElementById("message").value
+    }
+    emailjs.send("service_ywqnm1i", "template_u3dto0u", params).then(function(res){
+      alert(Success! + res.status);
+     })
+  }
+</script>
   <!--
     - ionicon link
   -->
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script>
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyK0Wzyih9Rkex_-po2HUnWXWYrzAllA9nbWaB3TGxmEhD21cxbfJm1lS7M1ONAPOv7/exec'
-            const form = document.forms['contactform']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting..! I've received your message..."))
-                .catch(error => console.error('Error!', error.message))
-            })
-          </script>
+
           <script>
             var loader = document.getElementByID("center");
             window.addEventListener("load",function(){
@@ -1154,15 +1178,7 @@ Enthusiastic Electronics Communication and Information Engineering student with 
 <!--
     - Robort
   -->
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-    async defer>
-</script>
-<script type="text/javascript">
-  var onloadCallback = function() {
-    alert("grecaptcha is ready!");
-    sitekey:'6LcmJELpAAAAAMCtSYr-WWfrH717Vpy9hCmx-Ms9',
-  };
-</script>
+
 <script type="text/javascript">
   let valueDisplays = document.querySelectorAll(".numc");
 let interval = 4000;
@@ -1181,9 +1197,5 @@ valueDisplays.forEach((valueDisplay) => {
 });
 
 </script>
-<script type="text/javascript">
-  function onSubmit(token) {
-    document.getElementById("form").submit();
-  }
-</script>
+
 </html>
