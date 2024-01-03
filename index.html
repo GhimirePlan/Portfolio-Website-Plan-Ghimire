@@ -1091,7 +1091,7 @@ Enthusiastic Electronics Communication and Information Engineering student with 
     var params = {
       from_name : document.getElementById("fullname").value,
       email_id : document.getElementById("email_id").value,
-      message : document.getElementById("message").value
+      message : document.getElementById("message").value,
     }
     emailjs.send("service_ywqnm1i", "template_u3dto0u", params).then(function(res){
       alert(Success! + res.status);
