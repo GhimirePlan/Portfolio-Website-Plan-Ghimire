@@ -14,7 +14,17 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
-
+// sendmail
+ function SendMail() {
+    var params = {
+      from_name : document.getElementById("fullname").value,
+      email_id : document.getElementById("email_id").value,
+      message : document.getElementById("message").value
+    }
+    emailjs.send("service_ywqnm1i", "template_u3dto0u", params).then(function(res){
+      alert(Success! + res.status);
+     })
+  }
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
