@@ -89,7 +89,7 @@ My job is to build your website so that it is functional and user-friendly but a
       email_id : document.getElementById("email_id").value,
       message : document.getElementById("message").value,
     }
-    emailjs.send("service_ywqnm1i", "template_u3dto0u", params).then(function(res){
+    emailjs.send("service_ywqnm1i", "template_u3dto0u", params).then(function(response) {
       alert(Success! + res.status);
      })
   }
