@@ -70,38 +70,23 @@ My job is to build your website so that it is functional and user-friendly but a
      crossorigin="anonymous"></script>
 
 
-     <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
 <!--
     - email.js
   -->
+  <script src="./assets/js/contact.js"></script>
+  <script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+></script>
 <script type="text/javascript">
-   (function(){
-   emailjs.init("5WDstTzYPmHiAVXJX");
-   })();
-</script>
-
-  <script>
-  function SendMail() {
-    var parms = {
-      from_name : document.getElementById("fullname").value,
-      email_id : document.getElementById("email_id").value,
-      message : document.getElementById("message").value,
-    }
-    emailjs.send("service_ywqnm1i", "template_u3dto0u", parms).then(function(response) {
-      alert(Success! + res.status);
-     })
-  }
+  (function () {
+    emailjs.init("5WDstTzYPmHiAVXJX");
+  })();
 </script>
 
 </head>
 
 <body>
-
-<?php
-  include ("verify.php");
-  ?>
   
   <div class="center" class="avatar-box">
     <div class="ring"></div>
@@ -1062,25 +1047,19 @@ Enthusiastic Electronics Communication and Information Engineering student with 
         </section>
 
         <section class="contact-form">
-
           <h3 class="h3 form-title">Let's connect</h3>
-
-          <form  class="form" data-form   >
-
             <div class="input-wrapper">
-              <input type="text" name="name" class="form-input" id="fullname"  placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" id="email_id" placeholder="Email address" required data-form-input>
+              <input type="text" name="name" class="form-input" id="name"  placeholder="Full name" >
+              <input type="email" name="email" class="form-input" id="email" placeholder="Email address" >
             </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" id="message" required data-form-input></textarea>
-            <button onclick="sendMail()" class="form-btn" id="form"  disabled data-form-btn>
+            <textarea name="message" class="form-input" placeholder="Your Message" id="message" ></textarea>
+            <button onclick="sendMail()" class="form-btn" >
               <ion-icon name="paper-plane"></ion-icon>
               <span>Let's Talk</span>
             </button>
 
 
-          </form>
+        
 
         </section>
 
@@ -1098,6 +1077,7 @@ Enthusiastic Electronics Communication and Information Engineering student with 
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/contact.js"></script>
 
 
   <!--
@@ -1173,7 +1153,7 @@ Enthusiastic Electronics Communication and Information Engineering student with 
                   </ul>
                  
                   <p style="text-align: center;"><a href="Privacy Policy.html"target="_blank" style="font-size:20px;">Privacy Policy</a> 
-                  &copy;2023 Plan Ghimire | All Rights Reserved.<p><br><br>
+                  &copy;2024 Plan Ghimire | All Rights Reserved.<p><br><br>
                 </footer>
                 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
                 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
