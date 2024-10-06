@@ -1033,23 +1033,20 @@ Enthusiastic Electronics Communication and Information Engineering student with 
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
-
+        
         <section class="contact-form">
           <h3 class="h3 form-title">Let's connect</h3>
-            <div class="input-wrapper">
-              <input type="text" name="name" class="form-input" id="name"  placeholder="Full name" >
-              <input type="email" name="email" class="form-input" id="email" placeholder="Email address" >
-            </div>
-            <textarea name="message" class="form-input" placeholder="Your Message" id="message" ></textarea>
-            <button onclick="sendMail()" class="form-btn" >
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Let's Talk</span>
-            </button>
-
-
-        
-
+          <div class="input-wrapper">
+            <input type="text" name="name" class="form-input" id="name" placeholder="Full name" required>
+            <input type="email" name="email" class="form-input" id="email" placeholder="Email address" required>
+          </div>
+          <textarea name="message" class="form-input" placeholder="Your Message" id="message" required></textarea>
+          <button onclick="validateForm()" class="form-btn">
+            <ion-icon name="paper-plane"></ion-icon>
+            <span>Let's Talk</span>
+          </button>
         </section>
+
 
 
       </article>
@@ -1170,5 +1167,20 @@ valueDisplays.forEach((valueDisplay) => {
 });
 
 </script>
+  
+<!--blank form validate-->
+<script>
+  function validateForm() {
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
 
+    if (name === "" || email === "" || message === "") {
+      alert("Please fill out all fields before submitting.");
+      return false;
+    } else {
+      sendMail(); // Assuming sendMail is your existing function
+    }
+  }
+</script>
 </html>
