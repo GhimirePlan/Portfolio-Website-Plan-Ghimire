@@ -185,55 +185,175 @@ for (let i = 0; i < navigationLinks.length; i++) {
       document.getElementById("my_audio").play();
     }
 
-//musicplayer
- var player = document.getElementById("player");
-      let progress = document.getElementById("progress");
-      let playbtn = document.getElementById("playbtn");
-      
-      var playpause = function () {
-        if (player.paused) {
-          player.play();
-        } else {
-          player.pause();
-        }
+    var player = document.getElementById("player");
+    let progress = document.getElementById("progress");
+    let playbtn = document.getElementById("playbtn");
+    let prevbtn = document.getElementById("prevbtn");
+    let nextbtn = document.getElementById("nextbtn");
+    let current = document.getElementById("current");
+    let songTitle = document.getElementById("songTitle");
+    
+    // Array of songs
+    let songs = [
+      { title: "", src: "./assets/Sounds/Renegades.mp3" },
+      { title: "", src: "./assets/Sounds/Hanumankind.mp3" },
+      { title: "", src: "./assets/Sounds/andonandon.mp3"},
+      {title: "", src: "./assets/Sounds/Alan Walker - Alone.mp3"}
+    ];
+    
+    let currentSongIndex = 0;
+    
+    // Function to load the song
+    function loadSong(songIndex) {
+      player.src = songs[songIndex].src;
+      songTitle.innerHTML = songs[songIndex].title;
+      player.load(); // Reload the audio element
+    }
+    
+    // Play/Pause functionality
+    var playpause = function () {
+      if (player.paused) {
+        player.play();
+      } else {
+        player.pause();
       }
-      
-      playbtn.addEventListener("click", playpause);
-      
-      player.onplay = function () {
-        playbtn.classList.remove("fa-play");
-        playbtn.classList.add("fa-pause");
+    }
+    
+    playbtn.addEventListener("click", playpause);
+    
+    // Previous song functionality
+    prevbtn.addEventListener("click", function() {
+      currentSongIndex = (currentSongIndex === 0) ? songs.length - 1 : currentSongIndex - 1;
+      loadSong(currentSongIndex);
+      player.play();
+    });
+    
+    // Next song functionality
+    nextbtn.addEventListener("click", function() {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      loadSong(currentSongIndex);
+      player.play();
+    });
+    
+    // Update button on play
+    player.onplay = function () {
+      playbtn.classList.remove("fa-play");
+      playbtn.classList.add("fa-pause");
+    }
+    
+    // Update button on pause
+    player.onpause = function () {
+      playbtn.classList.add("fa-play");
+      playbtn.classList.remove("fa-pause");
+    }
+    
+    // Time update and progress bar functionality
+    player.ontimeupdate = function () {
+      let ct = player.currentTime;
+      current.innerHTML = timeFormat(ct);
+    
+      // Calculate progress
+      let duration = player.duration;
+      let prog = Math.floor((ct * 100) / duration);
+    
+      // Update the --progress CSS variable
+      progress.style.setProperty('--progress', prog + "%");
+    }
+    
+    // Format the time to show in minutes:seconds
+    function timeFormat(ct) {
+      let minutes = Math.floor(ct / 60);
+      let seconds = Math.floor(ct % 60);
+    
+      if (seconds < 10) {
+        seconds = "0" + seconds;
       }
-      
-      player.onpause = function () {
-        playbtn.classList.add("fa-play");
-        playbtn.classList.remove("fa-pause");
-      }
-      
-      player.ontimeupdate = function () {
-        let ct = player.currentTime;
-        current.innerHTML = timeFormat(ct);
-        
-        //progress
-        
-        let duration = player.duration;
-        prog = Math.floor((ct * 100) / duration);
-        progress.style.setProperty("--progress", prog + "%");
-      }
-      
-      function timeFormat(ct) {
-        minutes = Math.floor(ct / 60);
-        seconds = Math.floor(ct % 60);
-      
-        if (seconds < 10) {
-          seconds = "0"+seconds;
-        }
-      
-        return minutes + ":" + seconds;
-      }
+    
+      return minutes + ":" + seconds;
+    }
+    
+    // Load the initial song
+    loadSong(currentSongIndex);
+    
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Function to check if an element is in the viewport
+    const isElementInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    // Function to add animations when elements come into view
+    const handleScrollAnimation = () => {
+        const animatedElements = document.querySelectorAll('.about-text, .service-item, .testimonials-item');
+        animatedElements.forEach(element => {
+            if (isElementInViewport(element)) {
+                element.classList.add('animate'); // Add the animate class
+            }
+        });
+    };
+
+    // Scroll Animation Observer
+function scrollObserverAnimation(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate'); // Add animation when visible
+    }
+  });
+}
+
+// Create an intersection observer for the scroll animations
+const scrollObserver = new IntersectionObserver(scrollObserverAnimation, {
+  threshold: 0.2, // 20% of the element should be visible to trigger
+});
+
+// Observe elements for scroll-triggered animation
+document.querySelectorAll('.timeline-item, .skills-item').forEach((item) => {
+  scrollObserver.observe(item);
+});
+
+// Skill Bar Animation Observer
+function skillBarObserver(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const skillBars = entry.target.querySelectorAll('.skill-progress-fill');
+      skillBars.forEach(skillBar => {
+        const width = skillBar.getAttribute('data-progress'); // Get the progress value
+        skillBar.style.width = width + '%'; // Animate the width of the skill bar
+      });
+    }
+  });
+}
+
+// Create an intersection observer for skill bar animations
+const skillObserver = new IntersectionObserver(skillBarObserver, {
+  threshold: 0.3, // 30% of the section visible before triggering skill bar animation
+});
+
+// Observe the skill section for bar animations
+skillObserver.observe(document.querySelector('.resume'));
 
 
+    // Initial call to handle scroll animations
+    handleScrollAnimation();
 
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScrollAnimation);
+});
+
+/* When the page loads, fade out the loader */
+window.onload = function() {
+  document.querySelector('.center').classList.add('fade-out');
+  setTimeout(() => {
+      document.querySelector('.center').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Enable scrolling
+  }, 500);
+};
 
 
 
@@ -290,3 +410,79 @@ for (let i = 0; i < navigationLinks.length; i++) {
             
               clock = setTimeout(clockSet, 1000); //nest setTimeOut 
             }, 1000) //repeat every second
+
+
+// Get all elements that will disintegrate
+const snapButton = document.getElementById('snapButton');
+const elementsToSnap = document.querySelectorAll('.profile-badge, h2, h3, img, a, time, address, .unique-status-indicator, h1, p, h4, h5, span, svg, .fa, .div, .clock, .icon-box, .count, .fa-users, button, .count, .section-effect');
+
+// Get audio elements
+const disintegrateSound = document.getElementById('disintegrateSound');
+const recoverSound = document.getElementById('recoverSound');
+
+// Add event listener for the snap button
+snapButton.addEventListener('click', function () {
+    // Add snap animation to the button
+    snapButton.classList.add('snap-click-effect');
+
+    // Loop through each element and apply specific animations based on tag or class
+    elementsToSnap.forEach(element => {
+        setTimeout(() => {
+            let classList = element.classList;
+
+            // Play disintegration sound
+            disintegrateSound.currentTime = 0; // Reset sound to start
+            disintegrateSound.play(); // Play disintegration sound
+
+            // Remove any existing animation classes first
+            classList.remove('disintegrate', 'recover', 'profile-badge-effect', 'icon-box-effect', 'count-effect', 'section-effect-animation', 'h1-effect', 'h2-effect', 'h3-effect', 'h4-effect', 'p-effect', 'img-effect', 'a-effect', 'address-effect', 'time-effect', 'span-effect', 'fa-effect', 'clock-effect');
+
+            // Add animation effects based on element type
+            if (classList.contains('profile-badge')) {
+                element.classList.add('profile-badge-effect');
+            } else if (classList.contains('icon-box')) {
+                element.classList.add('icon-box-effect');
+            } else if (classList.contains('count') || classList.contains('fa-users')) {
+                element.classList.add('count-effect');
+            } else if (classList.contains('section-effect')) {
+                element.classList.add('section-effect-animation');
+            } else {
+                let tag = element.tagName.toLowerCase();
+                element.classList.add(tag + '-effect');
+            }
+
+            // Add disintegration effect
+            element.classList.add('disintegrate');
+        }, Math.random() * 1000);  // Randomize the delay for a cooler effect
+    });
+
+    // Hide the snap button after activation
+    setTimeout(() => {
+        snapButton.style.display = 'none';
+    }, 1000);
+
+    // Automatically restore all content after 5 seconds, with recovery effects
+    setTimeout(() => {
+        elementsToSnap.forEach(element => {
+            // Remove disintegration effect and other animation classes
+            element.classList.remove('disintegrate', 'profile-badge-effect', 'icon-box-effect', 'count-effect', 'section-effect-animation', 'h1-effect', 'h2-effect', 'h3-effect', 'h4-effect', 'p-effect', 'img-effect', 'a-effect', 'address-effect', 'time-effect', 'span-effect', 'fa-effect', 'clock-effect');
+
+            // Apply the recovery effect
+            element.classList.add('recover');
+        });
+
+        // Play recovery sound
+        recoverSound.currentTime = 0; // Reset sound to start
+        recoverSound.play(); // Play recovery sound
+
+        // Remove recovery effect after animation is complete and show the snap button again
+        setTimeout(() => {
+            elementsToSnap.forEach(element => {
+                element.classList.remove('recover');
+            });
+            snapButton.style.display = 'block';  // Show the snap button again
+            snapButton.classList.remove('snap-click-effect');
+        }, 2000);  // Recovery duration (adjust if needed)
+
+    }, 5000); // Start recovery after 5 seconds
+});
