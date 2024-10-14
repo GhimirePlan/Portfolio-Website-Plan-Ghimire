@@ -1,0 +1,793 @@
+/* Base fade-out effect for all elements */
+@keyframes baseFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Profile Badge Effect */
+@keyframes time-effect {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+        filter: brightness(100%);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 0.5;
+        filter: brightness(50%);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.5);
+        opacity: 0;
+        filter: brightness(0%);
+    }
+}
+
+.time-effect {
+    animation: profileBadgeEffect 2s forwards;
+}
+
+/* Icon Box Effect */
+@keyframes iconBoxEffect {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg);
+        opacity: 0;
+        box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+    }
+}
+
+.icon-box-effect {
+    animation: iconBoxEffect 2s forwards;
+}
+
+/* Count Effect (For numbers, counters, etc.) */
+@keyframes countEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        color: #000;
+    }
+    50% {
+        transform: scale(1.2) translateY(-10px);
+        color: #ff6347;
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(0.5) translateY(-50px);
+        color: #ff0000;
+        opacity: 0;
+    }
+}
+
+.count-effect {
+    animation: countEffect 2s forwards;
+}
+
+/* Section Effect */
+@keyframes sectionEffectAnimation {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+        background: linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,200,255,1) 100%);
+    }
+    50% {
+        transform: translateX(50px) scale(1.1);
+        opacity: 0.8;
+        background: linear-gradient(90deg, rgba(255,150,0,1) 0%, rgba(255,0,150,1) 100%);
+    }
+    100% {
+        transform: translateX(100px) scale(0.8);
+        opacity: 0;
+        background: linear-gradient(90deg, rgba(0,200,255,1) 0%, rgba(255,0,150,1) 100%);
+    }
+}
+
+.section-effect-animation {
+    animation: sectionEffectAnimation 2s forwards;
+}
+
+/* H1 Effect - Fades and rotates */
+@keyframes h1Effect {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+        filter: blur(0px);
+    }
+    100% {
+        transform: rotate(360deg) scale(0.8);
+        opacity: 0;
+        filter: blur(5px);
+    }
+}
+
+.h1-effect {
+    animation: h1Effect 1.5s forwards;
+}
+
+/* H2 Effect - Translate and scale */
+@keyframes h2Effect {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.9);
+        opacity: 0;
+    }
+}
+
+.h2-effect {
+    animation: h2Effect 1.5s forwards;
+}
+
+/* H3 Effect - Skew and rotate */
+@keyframes h3Effect {
+    0% {
+        transform: skewX(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: skewX(30deg) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.h3-effect {
+    animation: h3Effect 1.5s forwards;
+}
+
+/* Paragraph Effect */
+@keyframes pEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.p-effect {
+    animation: pEffect 1.5s forwards;
+}
+
+/* Image Effect - Shrinks and blurs */
+@keyframes imgEffect {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: blur(5px);
+    }
+}
+
+.img-effect {
+    animation: imgEffect 1.5s forwards;
+}
+
+/* Anchor (Link) Effect - Translate and fade */
+@keyframes aEffect {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+.a-effect {
+    animation: aEffect 1.5s forwards;
+}
+
+/* Clock Effect */
+@keyframes clockEffect {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.clock-effect {
+    animation: clockEffect 1.5s forwards;
+}
+
+/* Span Effect */
+@keyframes spanEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+.span-effect {
+    animation: spanEffect 1.5s forwards;
+}
+
+/* Font Awesome Icon Effect */
+@keyframes faEffect {
+    0% {
+        transform: rotate(0deg) scale(1);
+        color: #000;
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0.5);
+        color: #FF0000;
+        opacity: 0;
+    }
+}
+
+.fa-effect {
+    animation: faEffect 1.5s forwards;
+}
+
+
+/* General base fade-out effect for all elements */
+@keyframes baseFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* H4 Effect */
+@keyframes h4Effect {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-50px) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+.h4-effect {
+    animation: h4Effect 2s forwards;
+}
+
+/* Address Effect */
+@keyframes addressEffect {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(0.8) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.address-effect {
+    animation: addressEffect 2s forwards;
+}
+
+/* Time Effect */
+@keyframes timeEffect {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+.time-effect {
+    animation: timeEffect 2s forwards;
+}
+
+/* Clock Effect */
+@keyframes clockEffect {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+.clock-effect {
+    animation: clockEffect 2s forwards;
+}
+
+/* Button Snap Effect */
+@keyframes snapClickEffect {
+    0% {
+        transform: scale(1);
+        background-color: #6c63ff;
+        color: white;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        background-color: #ff6347;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #32cd32;
+    }
+}
+
+.snap-click-effect {
+    animation: snapClickEffect 0.8s forwards;
+}
+
+/* Snap Button Hover Effect */
+#snapButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#snapButton:hover {
+    background-color: #ff6347;
+    transform: scale(1.1);
+}
+
+/* Icon Animation */
+@keyframes faEffect {
+    0% {
+        transform: rotate(0deg) scale(1);
+        color: #000;
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0.5);
+        color: #FF0000;
+        opacity: 0;
+    }
+}
+
+.fa-effect {
+    animation: faEffect 1.5s forwards;
+}
+
+/* More Effects for Unique Elements */
+@keyframes iconBoxEffect {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+        box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg);
+        opacity: 0;
+        box-shadow: 0 0 40px rgba(255, 0, 0, 0.8);
+    }
+}
+
+.icon-box-effect {
+    animation: iconBoxEffect 2s forwards;
+}
+
+/* Disintegration Effect for Icons */
+@keyframes iDisintegrate {
+    0% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+i.disintegrate {
+    animation: iDisintegrate 1.5s forwards;
+}
+
+/* Recovery Effect for Icons */
+@keyframes iRecover {
+    0% {
+        transform: rotate(-360deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+i.recover {
+    animation: iRecover 1.5s ease-out forwards;
+}
+
+/* Disintegration Effect for Other Elements */
+@keyframes disintegrate {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+.disintegrate {
+    animation: disintegrate 1.5s forwards;
+}
+
+/* Snap Effect */
+@keyframes snapClickEffect {
+    0% {
+        transform: scale(1);
+        background-color: #6c63ff;
+        color: white;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        background-color: #ff6347;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #32cd32;
+    }
+}
+
+.snap-click-effect {
+    animation: snapClickEffect 0.5s forwards;
+}
+
+/* Animation Effects for Headings */
+.h1-effect {
+    animation: h1Effect 1.5s forwards;
+}
+
+.h2-effect {
+    animation: h2Effect 1.5s forwards;
+}
+
+.h3-effect {
+    animation: h3Effect 1.5s forwards;
+}
+
+/* Recovery Effect */
+@keyframes recoverEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.recover {
+    animation: recoverEffect 1.5s ease-out forwards;
+}
+
+/* Specific effects for <i> elements */
+@keyframes iDisintegrate {
+    0% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) scale(0);
+        opacity: 0;
+    }
+}
+
+i.disintegrate {
+    animation: iDisintegrate 1.5s forwards;
+}
+
+@keyframes iRecover {
+    0% {
+        transform: rotate(-360deg) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+i.recover {
+    animation: iRecover 1.5s ease-out forwards;
+}
+
+/* Base Recovery Effect */
+@keyframes recoverEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.recover {
+    animation: recoverEffect 1.5s ease-out forwards;
+}
+
+/* Unique Recovery for Specific Elements */
+
+/* Profile Badge Recovery */
+@keyframes profileBadgeRecover {
+    0% {
+        transform: scale(0.5) translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.profile-badge.recover {
+    animation: profileBadgeRecover 1.5s ease-out forwards;
+}
+
+/* Icon Box Recovery */
+@keyframes iconBoxRecover {
+    0% {
+        transform: rotate(90deg) scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+.icon-box.recover {
+    animation: iconBoxRecover 1.7s ease-out forwards;
+}
+
+/* H1-H5 Recovery with Bounce */
+@keyframes headingRecover {
+    0% {
+        transform: scale(0.5) translateY(50px);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1) translateY(-10px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.h1.recover, .h2.recover, .h3.recover, .h4.recover, .h5.recover {
+    animation: headingRecover 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+/* P (Paragraph) Recovery with Fade */
+@keyframes paragraphRecover {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+p.recover {
+    animation: paragraphRecover 1.2s ease-out forwards;
+}
+
+/* Image Recovery with Zoom and Rotate */
+@keyframes imgRecover {
+    0% {
+        transform: scale(0.2) rotate(-180deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+img.recover {
+    animation: imgRecover 1.8s ease-out forwards;
+}
+
+/* SVG and FA Icons Recovery with Spin */
+@keyframes iconRecover {
+    0% {
+        transform: rotate(-360deg) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+svg.recover, .fa.recover {
+    animation: iconRecover 1.5s ease-out forwards;
+}
+
+/* Time and Address Recovery with Slide */
+@keyframes slideRecover {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.time.recover, .address.recover {
+    animation: slideRecover 1.5s ease-out forwards;
+}
+
+/* Clock Recovery with Pulsing Effect */
+@keyframes clockRecover {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.clock.recover {
+    animation: clockRecover 2s ease-out forwards;
+}
+
+/* Count Recovery with Pop-in */
+@keyframes countRecover {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.count.recover {
+    animation: countRecover 1.3s ease-out forwards;
+}
+
+/* Section Recovery with Fade-in and Slide */
+@keyframes sectionRecover {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-effect.recover {
+    animation: sectionRecover 1.5s ease-out forwards;
+}
+
+/* Special FA Users Recovery with Shake Effect */
+@keyframes faUsersRecover {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    20%, 60% {
+        transform: translateX(-10px);
+    }
+    40%, 80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fa-users.recover {
+    animation: faUsersRecover 1.8s ease-out forwards;
+}
+
+/* Unique Status Indicator Recovery */
+@keyframes statusIndicatorRecover {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.unique-status-indicator.recover {
+    animation: statusIndicatorRecover 1.8s ease-out forwards;
+}
+/* Button Snap Hover Effect */
+#snapButton {
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#snapButton:hover {
+    background-color: #ff6347;
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0px 8px 15px rgba(255, 99, 71, 0.7);
+}
+
+.snap-click-effect {
+    animation: snapClickEffect 0.8s forwards;
+}
