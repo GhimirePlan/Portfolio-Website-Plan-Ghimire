@@ -181,7 +181,7 @@ html { font-family: var(--ff-poppins); }
 
   .footer {background-color: #ee3;
   background-position: 8rem;
-background-size: ;}
+}
 
 
 
@@ -460,7 +460,7 @@ main {
   max-height: 112px;
   overflow: hidden;
   transition: var(--transition-2);
-  background: var(--eerie-black-2));
+  background: var(--eerie-black-2);
   border-radius: 20px;
 }
 
@@ -550,7 +550,7 @@ main {
   min-width: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
+  
 }
 
 .contact-info {
@@ -706,6 +706,7 @@ main {
 }
 
 
+
 /**
  * #testimonials 
  */
@@ -733,6 +734,34 @@ main {
   scroll-snap-align: center;
 }
 
+.testimonials-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.testimonials-item {
+  min-width: 100%;
+  scroll-snap-align: center;
+  position: relative;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; /* Changes the cursor to pointer */
+}
+
+.testimonials-item:hover {
+  transform: scale(1.05); /* Scales the card slightly on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adds a deeper shadow on hover */
+}
+
+.testimonials-avatar-box {
+  transition: transform 0.3s ease;
+}
+
+.testimonials-item:hover .testimonials-avatar-box {
+  transform: translateY(-10px); /* Moves the avatar box slightly up on hover */
+}
 .testimonials-avatar-box {
   position: absolute;
   top: 0;
@@ -894,12 +923,12 @@ main {
 }
 
 .clients-item {
-  min-width: 50%;
+  min-width: 60%;
   scroll-snap-align: start;
 }
 
 .clients-item img {
-  width: 100%;
+  width: 100px;
   filter: grayscale(0);
   transition: var(--transition-1);
 }
@@ -991,6 +1020,19 @@ main {
 .download:hover {
   background-color: Green;
 }
+
+
+.about-text, .service-item, .testimonials-item {
+  
+  transform: translateY(20px); /* Start slightly below */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Transition for opacity and position */
+}
+
+.animate {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to original position */
+}
+
 /**
  * skills 
  */
@@ -1017,7 +1059,149 @@ main {
 
 .skill-progress-bg {
   background: var(--jet);
-  width: 100%;
+  width: 100%;/* General Styles */
+.article-title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2rem;
+  animation: fadeInDown 0.8s ease-in-out;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Timeline */
+.timeline {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.timeline-list {
+  font-size: 1rem;
+  margin-left: 45px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.timeline-item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.timeline-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.timeline-item-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffc864;
+  margin-bottom: 7px;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -30px;
+  width: 1px;
+  height: calc(100% + 50px);
+  background: #555;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -33px;
+  height: 10px;
+  width: 10px;
+  background: #ffc864;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #333;
+}
+
+/* Skills Progress Animation */
+.skills-list {
+  padding: 20px;
+}
+
+.skill-progress-fill {
+  background: linear-gradient(90deg, #ffc864, #ff6347);
+  height: 100%;
+  border-radius: inherit;
+  animation: growBar 2s ease-out;
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Download Button with Hover Effect */
+.download {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  animation: pulseEffect 2s infinite;
+  transition: background-color 0.3s ease;
+}
+
+.download:hover {
+  background-color: Green;
+  transform: scale(1.1);
+}
+
   height: 8px;
   border-radius: 10px;
 }
@@ -1555,6 +1739,8 @@ cursor: pointer;
    * #ABOUT
    */
 
+   
+
   .about .article-title { margin-bottom: 20px; }
 
   .about-text { margin-bottom: 40px; }
@@ -1567,9 +1753,16 @@ cursor: pointer;
     align-items: flex-start;
     gap: 18px;
     padding: 30px;
+    flex: 1;
+    min-width: 200px;
+    background: #ecf0f1;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s;
   }
   .service-item:hover {
     background-color: #205cc7;
+    transform: translateY(-5px);
 }
  .testimonials-item:hover {
     background-color: #205cc7;
@@ -1612,6 +1805,7 @@ cursor: pointer;
 
   .testimonials-text {
     line-clamp: 2;
+    margin: 7%;
     -webkit-line-clamp: 2;
   }
 
@@ -1658,7 +1852,18 @@ cursor: pointer;
 
   .clients-item { min-width: calc(33.33% - 35px); }
 
+  .clients-item img:hover {
+    transform: scale(1.1);
+}
+/* Add a fade-out effect after loading */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
 
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
   /**
    * #RESUME
@@ -1745,6 +1950,249 @@ cursor: pointer;
     grid-template-columns: 1fr 1fr;
     gap: 30px 15px;
   }
+
+
+  @keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.sidebar {
+    animation: slideIn 0.5s ease forwards; /* Add this line to your sidebar */
+}
+.clock {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+}
+
+.social-item a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-item a:hover {
+  transform: rotate(360deg);
+}
+
+.sidebar-info_more {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+[data-sidebar-btn].active + .sidebar-info_more {
+    opacity: 1; /* Make sure to toggle the "active" class on the button */
+}
+/* Sidebar Styling */
+.sidebar {
+ 
+  top: 0;
+  left: -300px; /* Sidebar hidden initially */
+  width: 300px;
+  height: 100%;
+  
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  transition: left 0.4s ease-in-out; /* Smooth slide-in transition */
+  z-index: 999;
+}
+//* Initial Styling for the Button */
+.title {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #ff6ec4, #7873f5, #00c6ff); /* Multi-color gradient */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px; /* Rounded edges */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25); /* Subtle shadow */
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out; /* Smooth transition */
+}
+
+/* Hover Effect - Only triggers on hover */
+.title:hover {
+  transform: translateY(-8px); /* Lift button slightly */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+  background: linear-gradient(45deg, #7873f5, #00c6ff, #ff6ec4); /* Color shift */
+}
+
+/* Glowing Border Effect - Activated on hover */
+.title:hover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 60%);
+  transform: rotate(45deg);
+  transition: opacity 0.6s ease;
+  opacity: 1; /* Fully visible on hover */
+  z-index: 0;
+}
+
+/* Glowing Effect stays hidden unless hovered */
+.title::before {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* Text Style for the Button */
+.title span {
+  position: relative;
+  z-index: 1;
+}
+/* Avatar Box - Ensure the parent has a relative position */
+.avatar-box {
+  position: relative; /* This is important for positioning the status bubble */
+  display: inline-block; /* To contain the image and bubble together */
+}
+
+/* Active Status Bubble */
+.unique-status-indicator {
+  position: absolute; /* Position it relative to the avatar box */
+  bottom: 10px; /* Position from the bottom */
+  right: 10px; /* Position from the right */
+  width: 15px; /* Size of the status bubble */
+  height: 15px; /* Size of the status bubble */
+  background-color: #2ecc71; /* Green color for the bubble */
+  border: 2px solid white; /* White border for visibility */
+  border-radius: 50%; /* Make it a circle */
+  box-shadow: 0 0 5px rgba(46, 204, 113, 0.8); /* Subtle glow */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+  animation: uniqueStatusPulse1 10s infinite ease-in-out;
+}
+
+/* Status Bubble Animation on Hover */
+.avatar-box:hover .unique-status-indicator {
+  transform: scale(1.3); /* Slightly increase size on hover */
+  animation: uniqueStatusPulse 1.5s infinite ease-in-out; /* Pulsing animation */
+}
+
+/* Keyframes for Unique Status Pulse Animation */
+@keyframes uniqueStatusPulse {
+  0% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(46, 204, 113, 0.8);
+  }
+  50% {
+      transform: scale(1.5); /* Grow bigger */
+      box-shadow: 0 0 15px rgba(46, 204, 113, 1); /* Intensify glow */
+  }
+  100% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(46, 204, 113, 0.8);
+  }
+}
+@keyframes uniqueStatusPulse1 {
+  0% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(46, 204, 113, 0.8);
+  }
+  50% {
+      transform: scale(1.2); /* Grow bigger */
+      box-shadow: 0 0 15px rgba(46, 204, 113, 1); /* Intensify glow */
+  }
+  100% {
+      transform: scale(1);
+      box-shadow: 0 0 5px rgba(46, 204, 113, 0.8);
+  }
+}
+
+/* Optional Additional Hover Effect for the Image */
+.avatar-box:hover img {
+  transition: transform 0.4s ease-in-out; /* Smooth transition */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 600px) { /* Adjust the breakpoint as necessary */
+  .unique-status-indicator {
+      bottom: 5px; /* Slightly adjust position for smaller screens */
+      right: 5px; /* Slightly adjust position for smaller screens */
+      width: 12px; /* Smaller size for mobile */
+      height: 12px; /* Smaller size for mobile */
+  }
+
+  /* Optional: Reduce image size on smaller screens */
+  .avatar-box img {
+      width: 60px; /* Adjust image size for mobile */
+  }
+}
+
+
+/* Sidebar active state - slides in */
+.sidebar.active {
+  left: 0; /* Slide-in effect */
+}
+
+/* Avatar Image Hover Effect */
+.avatar-box img {
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out; /* Smooth image scaling */
+}
+
+.avatar-box img:hover {
+  transform: scale(1.1); /* Image grows on hover */
+}
+
+/* Contact List */
+.contacts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  transition: transform 0.3s ease-in-out; /* Smooth shift on hover */
+}
+
+.contact-item:hover {
+  transform: translateX(10px); /* Shifts to the right on hover */
+}
+
+/* Icon Box */
+.icon-box {
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 15px;
+}
+
+/* General Button Styling */
+.info_more-btn {
+  margin-top: 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.info_more-btn:hover {
+  background-color: #0056b3;
+}
 
 
 
@@ -2048,7 +2496,9 @@ cursor: pointer;
   .social-list { justify-content: center; }
 
 
-
+.linkedin,#linkedin{
+  width:220px;
+}
   /**
 	 * RESUME
 	 */
@@ -2060,7 +2510,7 @@ cursor: pointer;
 }
 /***Clock*/
 #clock{ 
-  background: var(--eerie-black-2); 
+  background: #000000; 
   width: fit-content;
   height: fit-content;
   box-shadow: 0px 20px 16px 1px #00000030;
@@ -2117,6 +2567,7 @@ and (max-device-width : 550px) { .clock{display: none} }
   grid-gap: 16px;
   position: relative;
   border-radius: 60px;
+  justify-items: start;
 }
 
 .control,#current {
@@ -2128,7 +2579,8 @@ and (max-device-width : 550px) { .clock{display: none} }
 }
 
 #playbtn {
-  font-size: 24px;
+  font-size: 20px;
+  padding-left: 20px;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
@@ -2143,14 +2595,14 @@ and (max-device-width : 550px) { .clock{display: none} }
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 #current {
   text-align: right;
 }
 
-.bar {
+.bar { 
   --space: -4px;
   background-color: black;
   overflow: hidden;
@@ -2164,12 +2616,27 @@ and (max-device-width : 550px) { .clock{display: none} }
 }
 
 #progress {
-  display: blcok;
-  width: var(--progress,0%);
-  background-color: white;
+  display: block;
+  width: var(--progress, 0%);
+  background-color: #1796fe; /* Lighter color for better visibility */
   transition: all 1s linear;
   height: 100%;
 }
+
+#playbtn {
+  color: white; /* Make play/pause button white to contrast with the black bar */
+}
+
+#prevbtn, #nextbtn {
+  font-size: 20px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  cursor: pointer;
+  color: white; /* Same styling for previous and next buttons */
+  margin: 0 10px;
+}
+
 
 /*-----------------------------------*\
   #Counter
@@ -2199,6 +2666,9 @@ and (max-device-width : 550px) { .clock{display: none} }
   border-radius: 0.5em;
   background-color: #21242b;
   border-bottom: 5px solid #ffc864;
+}
+.containerc:hover {
+  transform: scale(1.05); /* Scale up on hover */
 }
 i {
   color: #ffc864;
@@ -2325,4 +2795,4 @@ span.textc {
 
 
 
-}
+
