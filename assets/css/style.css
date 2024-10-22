@@ -1634,7 +1634,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar, article {
-    width: 520px;
+    
     margin-inline: auto;
     padding: 30px;
   }
