@@ -368,6 +368,9 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    align-items: center;
+    left: 70px;
+    
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -769,25 +772,54 @@ svg.recover, .fa.recover {
     animation: statusIndicatorRecover 1.8s ease-out forwards;
 }
 /* Button Snap Hover Effect */
-#snapButton {
-    padding: 12px 24px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    background-color: #6c63ff;
+
+/* Button styling with static image */
+.gif-button {
+    display: block;
+    background-image: url('https://elgoog.im/assets/p/thanos/img/thanos_idle.png'); /* Static Thanos image */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    position: relative; /* Required to position tooltip correctly */
 }
 
-#snapButton:hover {
-    background-color: #ff6347;
-    transform: scale(1.2) rotate(5deg);
-    box-shadow: 0px 8px 15px rgba(255, 99, 71, 0.7);
+/* Tooltip (description) styling */
+.button-description {
+    position: absolute;
+    bottom: 120%; /* Position above the button */
+    top:-30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(0); /* Start hidden */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1; /* Ensures tooltip is on top */
 }
 
-.snap-click-effect {
-    animation: snapClickEffect 0.8s forwards;
+/* Triangle effect for tooltip */
+.button-description::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 70%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+/* Hover effect on button to show tooltip */
+.gif-button:hover .button-description {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px); /* Smooth slide-up effect */
 }
