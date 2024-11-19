@@ -50,8 +50,8 @@ My job is to build your website so that it is functional and user-friendly but a
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/snap.css">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
+  <link rel="stylesheet" href="./assets/css/snap.css?v=1.0">
   <!--
     - google font link
   -->
@@ -86,7 +86,7 @@ My job is to build your website so that it is functional and user-friendly but a
   
   
   <!-- Audio elements for sound effects -->
-<audio id="disintegrateSound" src="./assets/Sounds/Portfolio.mp3" preload="auto"></audio>
+<audio id="disintegrateSound" src="./assets/Sounds/snap4.mp3" preload="auto"></audio>
 <audio id="recoverSound" src="./assets/Sounds/Portfolio.mp3" preload="auto"></audio>
 
 
@@ -121,7 +121,7 @@ My job is to build your website so that it is functional and user-friendly but a
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
 
-          <ion-icon name="chevron-down"></ion-icon>
+          <ion-icon name="chevron-down-outline"></ion-icon>
         </button>
 
       </div>
@@ -159,7 +159,8 @@ My job is to build your website so that it is functional and user-friendly but a
         </ul>
 
         <div class="separator"></div>
-        <button id="snapButton">Snap!</button>
+        
+       
         <ul class="contacts-list">
           <section class="contactbg">
             <li class="contact-item">
@@ -218,9 +219,12 @@ My job is to build your website so that it is functional and user-friendly but a
             </li>
         </ul>
         </section>
-
+        <br>
+        <button class="gif-button" id="snapButton">
+          <span class="button-description">Click to activate snap effect</span>
+      </button>
         <div class="separator"></div>
-
+        
         <ul class="social-list">
 
           <li class="social-item">
@@ -388,11 +392,11 @@ My job is to build your website so that it is functional and user-friendly but a
 
             <li class="service-item">
 
-              <div class="service-icon-box">
+              <div class="service-icon-box" style="text-align: center;" >
                 <i class="fa fa-laptop-code" alt="mobile app icon" width="40"></i>
               </div>
 
-              <div class="service-content-box" ">
+              <div class="service-content-box" >
                 <h4 class=" h4 service-item-title">Programming (C, C++, Python)</h4>
 
                 <p class="service-item-text">
@@ -536,7 +540,7 @@ My job is to build your website so that it is functional and user-friendly but a
 
                 <figure class="testimonials-avatar-box">
                   <img src="./assets/images/saj.png" alt="Sajesan Ghimire" width="60" data-testimonials-avatar
-                    height="90px">
+                    height="70px">
                 </figure>
 
                 <h4 class="h4 testimonials-item-title" data-testimonials-title>Er. Sajesan Ghimire</h4>
@@ -563,7 +567,7 @@ My job is to build your website so that it is functional and user-friendly but a
 
                 <figure class="testimonials-avatar-box">
                   <img src="./assets/images/avatar-1.png" alt="Music Ghimire" width="60" data-testimonials-avatar
-                    height="90px">
+                    height="70px">
                 </figure>
                 <h4 class="h4 testimonials-item-title" data-testimonials-title></h4>
 
@@ -1146,9 +1150,27 @@ My job is to build your website so that it is functional and user-friendly but a
       alert("Please fill out all fields before submitting.");
       return false;
     } else {
-      sendMail(); // Assuming sendMail is your existing function
+      sendMail();
     }
   }
 </script>
 
+<script>
+  const snapButton = document.getElementById('snapButton');
+  const staticImage = 'https://elgoog.im/assets/p/thanos/img/thanos_idle.png'; // Static image (Thanos idle)
+  const gifImage = 'https://i.pinimg.com/originals/fc/d6/fe/fcd6fea38c332d39cbbbd11fc8e94ed5.gif'; // Thanos snap GIF
+  
+  snapButton.addEventListener('click', () => {
+      // Change the button's background to the GIF
+      snapButton.style.backgroundImage = `url(${gifImage})`;
+
+      // After the GIF has played once, reset by briefly setting to an empty string, then back to the static image
+      setTimeout(() => {
+          snapButton.style.backgroundImage = ''; // Clear background image briefly
+          setTimeout(() => {
+              snapButton.style.backgroundImage = `url(${staticImage})`;
+          },10); // Short delay before reapplying the static image
+      }, 20); // Adjust based on GIF length in milliseconds (2.5 seconds here)
+  });
+</script>
 </html>
