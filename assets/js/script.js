@@ -7,13 +7,43 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
-// sidebar variables
+// Select the sidebar, button, and related elements
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+const arrowIcon = sidebarBtn.querySelector("ion-icon");
+const buttonText = sidebarBtn.querySelector("span");
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+let lastScrollPosition = 0;
+let isSidebarActive = false;
 
+// Toggle function for the sidebar
+sidebarBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
+  isSidebarActive = sidebar.classList.contains("active");
+
+  if (isSidebarActive) {
+    buttonText.textContent = "Hide Contacts";
+    arrowIcon.name = "chevron-up-outline";
+  } else {
+    buttonText.textContent = "Show Contacts";
+    arrowIcon.name = "chevron-down-outline";
+  }
+});
+
+// Auto-hide sidebar on scroll
+window.addEventListener("scroll", () => {
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition > lastScrollPosition && isSidebarActive) {
+    // Scrolling down - hide the sidebar
+    sidebar.classList.add("hidden");
+  } else if (currentScrollPosition < lastScrollPosition && isSidebarActive) {
+    // Scrolling up - show the sidebar
+    sidebar.classList.remove("hidden");
+  }
+
+  lastScrollPosition = currentScrollPosition;
+});
 
 
 // testimonials variables
@@ -420,8 +450,20 @@ const elementsToSnap = document.querySelectorAll('.profile-badge, h2, h3, img, a
 const disintegrateSound = document.getElementById('disintegrateSound');
 const recoverSound = document.getElementById('recoverSound');
 
+// Static and GIF images for snap button
+const staticImage = 'https://elgoog.im/assets/p/thanos/img/thanos_idle.png'; // Static image (Thanos idle)
+const gifImage = 'https://i.pinimg.com/originals/fc/d6/fe/fcd6fea38c332d39cbbbd11fc8e94ed5.gif'; // Thanos snap GIF
+
 // Add event listener for the snap button
 snapButton.addEventListener('click', function () {
+    // Change the button's background to the GIF
+    snapButton.style.backgroundImage = `url(${gifImage})`;
+
+    // After the GIF has played once, reset back to the static image
+    setTimeout(() => {
+        snapButton.style.backgroundImage = `url(${staticImage})`; // Fixed line
+    }, 3000); 
+
     // Add snap animation to the button
     snapButton.classList.add('snap-click-effect');
 
@@ -455,11 +497,6 @@ snapButton.addEventListener('click', function () {
             element.classList.add('disintegrate');
         }, Math.random() * 1000);  // Randomize the delay for a cooler effect
     });
-
-    // Hide the snap button after activation
-    setTimeout(() => {
-        snapButton.style.display = 'none';
-    }, 1000);
 
     // Automatically restore all content after 5 seconds, with recovery effects
     setTimeout(() => {
